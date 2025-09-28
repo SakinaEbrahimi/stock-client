@@ -1,0 +1,29 @@
+<%- include('../include/head.ejs')%>
+</head>
+
+<body class="index-page">
+<%- include('../include/header.ejs')%>
+  </header>
+
+  <main class="main">
+    <section>
+        <form action="/typeProduct" method="POST" style="margin-left: 35%;  width: 30%;"> 
+            <div style="margin-bottom: 30px;">          
+                <div style="float: right;">
+                    <label for="">
+                            :نوعیت کالا
+                    </label>
+                </div>
+                <div>
+                    <input type="text" name="typeProduct" class="col-md-12">
+                </div>
+            </div>
+            <div style="margin-bottom: 30px; margin-left: 45%;">
+                <button type="submit">ثبت</button>
+            </div>
+        </form>
+    </section>
+  </main>
+
+  
+  <%- include('../include/end.ejs')%>

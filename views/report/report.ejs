@@ -1,0 +1,64 @@
+<%- include('../include/head.ejs')%>
+<style>
+  table {
+    margin: 50px auto;
+  }
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: separate;
+  }
+  th,td {
+    border: 1px solid black;
+    padding: 15px;
+    text-align: center;
+  }
+</style>
+</head>
+
+<body class="index-page">
+<%- include('../include/header.ejs')%>
+  </header>
+
+  <main class="main">
+      <table>
+        <thead>
+          <tr>
+            <th>تنظیمات</th>
+            <th>توضیحات</th>
+            <th>آدرس  </th>
+            <th>سفارش کالا </th>
+            <th>شماره تلفن</th>
+            <th>  نام مشتری</th>
+        </tr>
+        </thead>
+        <% for(c of cutomer){
+          %>
+        <tbody>            
+              <td>
+                <a href="/edit/<%= c.id%>">ویرایش</a>
+                <form action="deleteCustomer" method="POST">
+                  <input type="hidden" name="IdC" id="" value="<%= c.id%>">
+                  <button type="submit">حذف</button>
+                </form>
+              </td>
+              <td><%= c.description%></td>
+              <td><%= c.address%></td>
+              <% for(p of pro){
+                if(p.id == c.product){
+                  %>
+              <td> <%= p.name%></td>
+                  <%
+                }
+              } %>
+              <td><%= c.phone%></td>
+              <td><%= c.name%></td>
+              
+        </tbody>
+        <%
+            } %>
+      </table>
+    
+  </main>
+
+  
+  <%- include('../include/end.ejs')%>

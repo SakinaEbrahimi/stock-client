@@ -1,0 +1,64 @@
+<%- include('../include/head.ejs')%>
+</head>
+
+<body class="index-page">
+<%- include('../include/header.ejs')%>
+  </header>
+
+  <main class="main">
+    <section>
+        <form action="/edit" method="POST" style="margin-left: 35%;  width: 30%;"> 
+            <div style="margin-bottom: 30px;">  
+                <div style="float: right;">
+                    <label for="">
+                            : نوعیت
+                    </label>
+                </div>
+                <select name="type" id="" class="col-md-12" >
+                    <% for(t of typeproduct){
+                        %>
+                    <option value="<%= t.id%>" ><%= t.type%></option>
+                        <%}%>
+                </select>       
+            </div>
+            <input type="hidden" name="productID" value="<%= product.id%>">
+            <div style="margin-bottom: 30px;">          
+                <div style="float: right;">
+                    <label for="">
+                            :نام کالا
+                    </label>
+                </div>
+                <div>
+                    <input type="text" value="<%= product.name%>" name="name" class="col-md-12">
+                </div>
+            </div>
+            <div style="margin-bottom: 30px;">
+                <div style="float: right;">
+                    <label for="">
+                            :قیمت کالا
+                    </label>
+                </div>
+                <div>
+                    <input type="text" name="price" value="<%= product.price%>" class="col-md-12">
+                </div>
+            </div>
+            <div style="margin-bottom: 30px;">
+                <div style="float: right;">
+                    <label for="">
+                            : توضیح  
+                    </label>
+                </div>
+                <div>
+                    <textarea name="description" value="" id="" cols="42" rows="6"><%= product.description%></textarea>
+                </div>
+            </div>
+            <div style="margin-bottom: 30px; margin-left: 45%; ">
+                <button type="submit">ثبت</button>
+                <a href="/" style="padding: 30px;">لغو</a>
+            </div>
+        </form>
+    </section>
+  </main>
+
+  
+  <%- include('../include/end.ejs')%>
