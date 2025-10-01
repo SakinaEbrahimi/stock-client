@@ -20,7 +20,7 @@ app.use(routAdmin)
 app.use(report)
 typeProduct.hasMany(product)
 
-connection.sync({fore : true})
+connection.sync()
 .then(()=>{
     console.log("connection is successful..")
     app.listen('3000')
