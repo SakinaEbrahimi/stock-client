@@ -1,4 +1,4 @@
-const db = require('../util/database')
+const db = require('../util/database.js')
 const sequelize = require('sequelize')
 
 const typeProduct = db.define("typeProduct", {
